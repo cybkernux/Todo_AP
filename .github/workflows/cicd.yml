@@ -10,6 +10,9 @@ jobs:
   test:
     name: Backend Testlari
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
     steps:
       - name: Loyihani yuklab olish
         uses: actions/checkout@v4
