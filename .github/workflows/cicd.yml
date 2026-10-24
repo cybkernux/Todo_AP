@@ -1,0 +1,29 @@
+name: Todo CI/CD Pipeline
+
+on:
+  push:
+    branches [ main ]
+  pull_request:
+    branches [ main ]
+
+jobs:
+  test:
+    name: Backend Testlari
+    runs-on: ubuntu-latest
+    steps:
+      - name: Loyihani yuklab olish
+        uses: actions/checkout@4
+
+      - name: Node.js o'rnatish
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Dependencylarni o'rnatish
+        run: npm ci
+
+
+      - name: Testlarni ishga tushurish
+        run: npm test
