@@ -30,3 +30,5 @@ jobs:
 
       - name: Testlarni ishga tushurish
         run: npm test
+        env:
+          SQLITE_DB_LOCATION: ${{ runner.temp }}/todos/todo.db
